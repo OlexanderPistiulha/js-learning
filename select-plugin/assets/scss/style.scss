@@ -1,0 +1,87 @@
+// base style
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// app style
+
+.app {
+
+    &__wrapp {
+        width: 500px;
+    }
+}
+
+
+$height: 46px;
+
+.select {
+    width: 100%;
+    position: relative;
+
+    &.open {
+        .select__dropdown {
+            display: block;
+        }
+
+        .select__input {
+            border-bottom: none;
+        }
+    }
+
+    &__input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: $height;
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__input-text {}
+
+    &__input-img {
+        width: 18px;
+        height: 18px;
+    }
+
+    &__input-img-down {
+        transform: rotateX(180deg);
+    }
+
+    &__input-img-up {
+        transform: rotateX(0deg);
+    }
+
+    &__dropdown {
+        display: none;
+        position: absolute;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        top: $height;
+        left: 0;
+        right: 0;
+        max-height: 280px;
+        overflow-y: auto;
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        padding: 1rem;
+        border-bottom: 1px solid #ccc;
+
+        &:hover {
+            background-color: #eee;
+            cursor: pointer;
+            transition: .1s;
+        }
+    }
+}
