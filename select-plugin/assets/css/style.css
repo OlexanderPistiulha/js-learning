@@ -78,6 +78,10 @@
   border-bottom: 1px solid #ccc;
 }
 
+.select__item.selected {
+  background-color: #f1baba;
+}
+
 .select__item:hover {
   background-color: #eee;
   cursor: pointer;

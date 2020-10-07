@@ -1,9 +1,17 @@
-const getTemplate = (data = [], placeholder) => {
-    const text = placeholder ?? `Text if we don't have objec.placeholder`;
+const getTemplate = (data = [], placeholder, selectedId) => {
+    let text = placeholder ?? `Text if we don't have objec.placeholder`;
 
     const items = data.map(item => {
+
+        let cls ='';
+
+        if (item.id === selectedId) {
+            text = item.value;
+            cls = 'selected';
+        }
+
         return `
-        <li class="select__item" data-type = "item" data-id = "${item.id}">
+        <li class="select__item ${cls}" data-type = "item" data-id = "${item.id}">
              <a target="_blank" href="${item.link}" class="select__link">${item.value}</a>
         </li>   
         `
@@ -27,7 +35,7 @@ class Select {
     constructor(selector, options) {
         this.$el = document.querySelector(selector);
         this.options = options;
-        this.selectedId = null;
+        this.selectedId = options.selectedId;
 
         this.#render();
         this.#setup();
@@ -37,7 +45,7 @@ class Select {
         const {placeholder} = this.options;
         const {data} = this.options;
         this.$el.classList.add('select');
-        this.$el.innerHTML = getTemplate(data, placeholder);
+        this.$el.innerHTML = getTemplate(data, placeholder,  this.selectedId);
     }
 
     #setup() {
@@ -68,6 +76,13 @@ class Select {
     select(id){
         this.selectedId = id;
         this.$value.textContent = this.current.value;
+
+        this.$el.querySelectorAll('[data-type="item"]').forEach(el => {
+            el.classList.remove('selected');
+        });
+       
+        this.$el.querySelector(`[data-id="${id}"]`).classList.add('selected');
+        
         this.close();
     }
 
@@ -89,20 +104,24 @@ class Select {
 
     destroy() {
         this.$el.removeEventListener('click', this.clickHandler);
+        this.$el.innerHTML = '';
     }
 }
 
 const select = new Select('#select', {
     placeholder: 'PL',
+    
+    // текст с item.value вместо preceholder
+    selectedId: '4',
     data:[
         {id: '1', value: 'item__1', link: '#'},
         {id: '2', value: 'item__2', link: '#'},
         {id: '3', value: 'item__3', link: '#'},
-        {id: '4', value: 'item__4', link: 'https://github.com/vladilenm/select-plugin/blob/master/select/select.js'},
-        {id: '5', value: 'item__5', link: ''},
-        {id: '6', value: 'item__6', link: ''},
-        {id: '7', value: 'item__7', link: ''},
-        {id: '8', value: 'item__8', link: ''},
+        {id: '4', value: 'item__4', link: '#'},
+        {id: '5', value: 'item__5', link: '#'},
+        {id: '6', value: 'item__6', link: '#'},
+        {id: '7', value: 'item__7', link: '#'},
+        {id: '8', value: 'item__8', link: '#'},
     ]
 
 });

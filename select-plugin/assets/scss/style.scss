@@ -78,6 +78,10 @@ $height: 46px;
         padding: 1rem;
         border-bottom: 1px solid #ccc;
 
+        &.selected{
+            background-color: rgb(241, 186, 186);
+        }
+
         &:hover {
             background-color: #eee;
             cursor: pointer;
