@@ -37,7 +37,6 @@
 }
 
 .modal__window {
-  width: 600px;
   border-radius: 5px;
   background: #fff;
   padding: 10px;
@@ -59,6 +58,7 @@
 }
 
 .modal__close {
+  display: block;
   font-size: 30px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
