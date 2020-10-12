@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.modal {
+
+    &__overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.445);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__window {
+        width: 600px;       
+        border-radius: 5px;
+        background: #fff;
+        padding: 10px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {}
+
+    &__close {
+        font-size: 30px;
+        transform: rotate(45deg);
+        cursor: pointer;
+    }
+
+    &__body {}
+
+    &__footer {      
+
+    }
+
+}
+
+
