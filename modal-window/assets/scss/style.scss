@@ -6,7 +6,23 @@
 
 .modal {
 
+    &.open &__overlay {
+        opacity: 1;
+        z-index: 1000;
+        //transition: .5s;
+    }
+
+    // &.hide &__overlay {
+    //     opacity: 1;
+    //     z-index: 1000;
+    //     transition: 5s;
+    // }
+
+
+
     &__overlay {
+        opacity: 0;
+        z-index: -1;
         position: fixed;
         top: 0;
         right: 0;
@@ -17,10 +33,13 @@
         justify-content: center;
         align-items: center;
         height: 100%;
+        transition: opacity .5s;
     }
 
     &__window {
-        width: 600px;       
+        // opacity: 0;
+        // z-index: -1;
+        width: 600px;
         border-radius: 5px;
         background: #fff;
         padding: 10px;
@@ -42,10 +61,6 @@
 
     &__body {}
 
-    &__footer {      
-
-    }
+    &__footer {}
 
 }
-
-
