@@ -1,26 +1,17 @@
-// base style
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-// app style
-
-.app {
-
-    &__wrapp {
-        width: 500px;
-    }
-}
-
-
 $height: 46px;
 
 .select {
-    width: 100%;
+    width: 47%;
     position: relative;
+    margin-top: 40px;
+
+    @media screen and (max-width: 1100px) {
+        width: 90%;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
 
     &.open {
         .select__dropdown {
@@ -33,7 +24,8 @@ $height: 46px;
     }
 
     &__input {
-        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.46);
         border-radius: 5px;
         height: $height;
         padding: 0 10px;
@@ -43,11 +35,14 @@ $height: 46px;
         cursor: pointer;
     }
 
-    &__input-text {}
+    &__input-text {
+        user-select: none;
+    }
 
     &__input-img {
         width: 18px;
         height: 18px;
+        user-select: none;
     }
 
     &__input-img-down {
@@ -61,11 +56,13 @@ $height: 46px;
     &__dropdown {
         display: none;
         position: absolute;
-        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0px 10px 22px -6px rgba(0, 0, 0, 0.46);
         border-radius: 5px;
         top: $height;
         left: 0;
         right: 0;
+        z-index: 1000;
         max-height: 280px;
         overflow-y: auto;
     }
@@ -75,17 +72,31 @@ $height: 46px;
     }
 
     &__item {
-        padding: 1rem;
         border-bottom: 1px solid #ccc;
-
-        &.selected{
-            background-color: rgb(241, 186, 186);
-        }
+        background-color: #fff;
+        color: #ccc;
+        user-select: none;
 
         &:hover {
             background-color: #eee;
             cursor: pointer;
             transition: .1s;
+        }
+    }
+
+    &__link {
+        width: 100%;
+        padding: 15px;
+        display: inline-block;
+        text-decoration: none;
+        color: rgb(70, 70, 70);
+
+        &.selected {
+            background-color: rgb(185, 184, 184);
+
+            & .select__link {
+                color: rgb(255, 253, 253);
+            }
         }
     }
 }

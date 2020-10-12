@@ -1,17 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.app__wrapp {
-  width: 500px;
-}
-
 .select {
-  width: 100%;
+  width: 47%;
   position: relative;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 1100px) {
+  .select {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .select {
+    width: 100%;
+  }
 }
 
 .select.open .select__dropdown {
@@ -23,7 +25,9 @@
 }
 
 .select__input {
-  border: 1px solid #ccc;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.46);
+          box-shadow: 0px 0px 22px -6px rgba(0, 0, 0, 0.46);
   border-radius: 5px;
   height: 46px;
   padding: 0 10px;
@@ -42,9 +46,20 @@
   cursor: pointer;
 }
 
+.select__input-text {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .select__input-img {
   width: 18px;
   height: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .select__input-img-down {
@@ -60,11 +75,14 @@
 .select__dropdown {
   display: none;
   position: absolute;
-  border: 1px solid #ccc;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 10px 22px -6px rgba(0, 0, 0, 0.46);
+          box-shadow: 0px 10px 22px -6px rgba(0, 0, 0, 0.46);
   border-radius: 5px;
   top: 46px;
   left: 0;
   right: 0;
+  z-index: 1000;
   max-height: 280px;
   overflow-y: auto;
 }
@@ -74,12 +92,13 @@
 }
 
 .select__item {
-  padding: 1rem;
   border-bottom: 1px solid #ccc;
-}
-
-.select__item.selected {
-  background-color: #f1baba;
+  background-color: #fff;
+  color: #ccc;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .select__item:hover {
@@ -87,5 +106,21 @@
   cursor: pointer;
   -webkit-transition: .1s;
   transition: .1s;
+}
+
+.select__link {
+  width: 100%;
+  padding: 15px;
+  display: inline-block;
+  text-decoration: none;
+  color: #464646;
+}
+
+.select__link.selected {
+  background-color: #b9b8b8;
+}
+
+.select__link.selected .select__link {
+  color: #fffdfd;
 }
 /*# sourceMappingURL=style.css.map */
